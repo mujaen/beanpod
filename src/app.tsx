@@ -13,6 +13,8 @@ import {
 
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
+import { CustomThemeProvider } from "#styles/themeProvider";
+
 import Dashboard from "#pages/Dashboard";
 import Login from "#pages/Login";
 
@@ -58,12 +60,14 @@ ReactDOM.createRoot(rootNode).render(
     {process.env.NODE_ENV === "development" && (
       <ReactQueryDevtools initialIsOpen={false} />
     )}
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact component={Dashboard} />
-        <Route path="/login" component={Login} />
-        <Redirect from="*" to="/" />
-      </Switch>
-    </BrowserRouter>
+    <CustomThemeProvider>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Dashboard} />
+          <Route path="/login" component={Login} />
+          <Redirect from="*" to="/" />
+        </Switch>
+      </BrowserRouter>
+    </CustomThemeProvider>
   </QueryClientProvider>
 );
