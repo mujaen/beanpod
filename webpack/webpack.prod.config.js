@@ -1,7 +1,6 @@
 /***
  *  PRODUCTION WEBPACK CONFIGURATION
  */
-const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')

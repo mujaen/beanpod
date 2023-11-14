@@ -1,31 +1,29 @@
 /***
  *  BASE WEBPACK CONFIGURATION
  */
-const webpack = require("webpack");
-const path = require("path");
-const packageJSON = require("../package.json");
+const path = require('path')
 
-module.exports = (options) => ({
+module.exports = options => ({
   mode: options.mode,
   entry: options.entry,
   output: {
-    filename: "[name].[chunkhash].js",
-    path: path.resolve(process.cwd(), "build"),
+    filename: '[name].[chunkhash].js',
+    path: path.resolve(process.cwd(), 'build'),
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
-    modules: [path.resolve(process.cwd(), "src"), "node_modules"],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    modules: [path.resolve(process.cwd(), 'src'), 'node_modules'],
     alias: {
-      "#assets": path.resolve(process.cwd(), "src/assets"),
-      "#components": path.resolve(process.cwd(), "src/components"),
-      "#constants": path.resolve(process.cwd(), "src/constants"),
-      "#graphql": path.resolve(process.cwd(), "src/graphql"),
-      "#hooks": path.resolve(process.cwd(), "src/hooks"),
-      "#pages": path.resolve(process.cwd(), "src/pages"),
-      "#store": path.resolve(process.cwd(), "src/store"),
-      "#styles": path.resolve(process.cwd(), "src/styles"),
-      "#test": path.resolve(process.cwd(), "src/test"),
-      "#utils": path.resolve(process.cwd(), "src/utils"),
+      '#assets': path.resolve(process.cwd(), 'src/assets'),
+      '#components': path.resolve(process.cwd(), 'src/components'),
+      '#constants': path.resolve(process.cwd(), 'src/constants'),
+      '#graphql': path.resolve(process.cwd(), 'src/graphql'),
+      '#hooks': path.resolve(process.cwd(), 'src/hooks'),
+      '#pages': path.resolve(process.cwd(), 'src/pages'),
+      '#store': path.resolve(process.cwd(), 'src/store'),
+      '#styles': path.resolve(process.cwd(), 'src/styles'),
+      '#test': path.resolve(process.cwd(), 'src/test'),
+      '#utils': path.resolve(process.cwd(), 'src/utils'),
     },
   },
   plugins: [...options.plugins],
@@ -35,12 +33,12 @@ module.exports = (options) => ({
       {
         // Match `.js`, `.jsx`, `.ts` or `.tsx` files
         test: /\.[jt]sx?$/,
-        loader: "esbuild-loader",
+        loader: 'esbuild-loader',
         options: {
           // JavaScript version to compile to
-          target: "es2015",
+          target: 'es2015',
         },
       },
     ],
   },
-});
+})
