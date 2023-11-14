@@ -7,7 +7,6 @@ const base = (theme: Theme) => css`
   body,
   input,
   button {
-    font-size: 15px;
     letter-spacing: -0.01em;
     color: ${theme.colors.gray900};
     font-family:
@@ -31,7 +30,7 @@ const base = (theme: Theme) => css`
     font-display: swap;
     src:
       local('Pretendard Variable'),
-      url('/fonts/PretendardVariable.woff2') format('woff2-variations');
+      url('#assets/fonts/PretendardVariable.woff2') format('woff2-variations');
   }
 
   @font-face {
@@ -41,7 +40,7 @@ const base = (theme: Theme) => css`
     font-display: swap;
     src:
       local('Roboto'),
-      url('/fonts/RobotoBold.woff2') format('woff2-variations');
+      url('#assets/fonts/RobotoBold.woff2') format('woff2-variations');
   }
 
   @font-face {
@@ -51,7 +50,7 @@ const base = (theme: Theme) => css`
     font-display: swap;
     src:
       local('Roboto'),
-      url('/fonts/RobotoMedium.woff2') format('woff2-variations');
+      url('#assets/fonts/RobotoMedium.woff2') format('woff2-variations');
   }
 
   @font-face {
@@ -61,7 +60,7 @@ const base = (theme: Theme) => css`
     font-display: swap;
     src:
       local('Roboto'),
-      url('/fonts/RobotoRegular.woff2') format('woff2-variations');
+      url('#assets/fonts/RobotoRegular.woff2') format('woff2-variations');
   }
 
   @font-face {
@@ -71,7 +70,7 @@ const base = (theme: Theme) => css`
     font-display: swap;
     src:
       local('Roboto'),
-      url('/fonts/RobotoLight.woff2') format('woff2-variations');
+      url('#assets/fonts/RobotoLight.woff2') format('woff2-variations');
   }
 `
 export default base
