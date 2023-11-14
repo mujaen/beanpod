@@ -1,5 +1,5 @@
 import { ThemeMode } from '@emotion/react'
-import { theme, bootstrapColors } from 'styles/theme'
+import { theme, bootstrapColors } from '#styles/theme'
 
 type ThemeMode = typeof theme
 

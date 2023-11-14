@@ -1,1 +1,1 @@
-module.exports = parseInt("3000");
+module.exports = parseInt('3000')

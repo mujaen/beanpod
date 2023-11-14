@@ -4,8 +4,7 @@
 const express = require('express')
 const port = require('./port')
 const app = express()
-const https = require('https')
-const logger = require('./logger.js')
+const logger = require('./logger')
 const isProd = process.env.NODE_ENV === 'production'
 const devMiddleware = require('./middlewares/devMiddleware')
 const prodMiddleware = require('./middlewares/prodMiddleware')
@@ -25,7 +24,7 @@ if (isProd) {
 
 // Start app.
 if (protocol === 'https') {
-  app.listen(port, async (err) => {
+  app.listen(port, async err => {
     if (err) {
       return logger.error(err.message)
     }

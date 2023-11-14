@@ -2,9 +2,8 @@ const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const path = require('path')
-const util = require('util')
 
-function createWebpackMiddleware(compiler, publicPath) {
+function createWebpackMiddleware(compiler) {
   return webpackDevMiddleware(compiler, {})
 }
 
