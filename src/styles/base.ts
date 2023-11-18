@@ -2,12 +2,11 @@ import { css, Theme } from '@emotion/react'
 
 const base = (theme: Theme) => css`
   body {
-    background: ${theme.colors.white900};
+    background: ${theme.colors.gray100};
   }
   body,
   input,
   button {
-    letter-spacing: -0.01em;
     color: ${theme.colors.gray900};
     font-family:
       Roboto,

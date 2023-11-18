@@ -1,6 +1,7 @@
 {
   "packageManager": "yarn@4.0.1",
   "scripts": {
+    "dev": "NODE_ENV=development DIST_ENV=development PROTOCOL=https node server/index.js",
     "start": "NODE_ENV=development DIST_ENV=development PROTOCOL=https node server/index.js",
     "start:prod": "NODE_ENV=development DIST_ENV=production PROTOCOL=https node server/index.js",
     "typecheck": "tsc --noEmit",
@@ -41,6 +42,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "html-webpack-plugin": "^5.5.3",
     "prettier": "^3.1.0",
+    "raw-loader": "^4.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-loader": "^4.13.1",

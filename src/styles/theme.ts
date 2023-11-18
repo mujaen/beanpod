@@ -162,7 +162,7 @@ const light = {
   colors: {
     white900: '#FFFFFF',
 
-    gray100: '#F8F9FA',
+    gray100: '#F2F5F6',
     gray200: '#F1F5F9',
     gray300: '#ECF0F5',
     gray400: '#E2E8F0',
@@ -179,7 +179,7 @@ const light = {
     blue500: primary_light,
     blue600: '#234684',
 
-    point100: '#09BB55',
+    point100: '#263f49',
     point200: '#EE8F00',
   },
   fonts: font_size_weight,
@@ -216,7 +216,7 @@ const dark = {
   colors: {
     white900: '#FFFFFF',
 
-    gray100: '#F8F9FA',
+    gray100: '#F2F5F6',
     gray200: '#F1F5F9',
     gray300: '#ECF0F5',
     gray400: '#E2E8F0',
@@ -233,7 +233,7 @@ const dark = {
     blue500: primary_light,
     blue600: '#234684',
 
-    point100: '#09BB55',
+    point100: '#263f49',
     point200: '#EE8F00',
   },
   fonts: font_size_weight,

@@ -1,7 +1,9 @@
 import React from 'react'
 
+import PageHeader from '#components/PageHeader'
+
 function Dashboard({}) {
-  return <h2>올리 데이터베이스</h2>
+  return <PageHeader title="대시보드" />
 }
 
 export default Dashboard
