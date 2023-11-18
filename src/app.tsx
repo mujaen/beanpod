@@ -11,7 +11,10 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { CustomThemeProvider } from '#styles/themeProvider'
 
+import Frame from '#components/Layout/Frame'
+
 import Dashboard from '#pages/Dashboard'
+import Member from '#pages/Member'
 import Login from '#pages/Login'
 
 export const defaultQueryFn = async ({ queryKey }: QueryFunctionContext) => {
@@ -55,11 +58,14 @@ ReactDOM.createRoot(rootNode).render(
     {process.env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} />}
     <CustomThemeProvider>
       <BrowserRouter>
-        <Switch>
-          <Route path="/" exact component={Dashboard} />
-          <Route path="/login" component={Login} />
-          <Redirect from="*" to="/" />
-        </Switch>
+        <Frame>
+          <Switch>
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/member" component={Member} />
+            <Route path="/login" component={Login} />
+            <Redirect from="*" to="/" />
+          </Switch>
+        </Frame>
       </BrowserRouter>
     </CustomThemeProvider>
   </QueryClientProvider>,
