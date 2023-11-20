@@ -163,13 +163,13 @@ const light = {
     white900: '#FFFFFF',
 
     gray100: '#F2F5F6',
-    gray200: '#F1F5F9',
+    gray200: '#F1EEED',
     gray300: '#ECF0F5',
     gray400: '#E2E8F0',
-    gray500: '#D3DDE9',
+    gray500: '#D7DADB',
     gray600: '#C2CBD6',
     gray700: '#919DAD',
-    gray800: '#606D80',
+    gray800: '#666666',
     gray900: '#313748',
 
     blue100: '#FCFEFF',
@@ -217,13 +217,13 @@ const dark = {
     white900: '#FFFFFF',
 
     gray100: '#F2F5F6',
-    gray200: '#F1F5F9',
+    gray200: '#F1EEED',
     gray300: '#ECF0F5',
     gray400: '#E2E8F0',
-    gray500: '#D3DDE9',
+    gray500: '#D7DADB',
     gray600: '#C2CBD6',
     gray700: '#919DAD',
-    gray800: '#606D80',
+    gray800: '#666666',
     gray900: '#313748',
 
     blue100: '#FCFEFF',
