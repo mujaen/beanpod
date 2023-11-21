@@ -157,7 +157,7 @@ const font_size_weight = {
   `,
 }
 
-const primary_light = '#33599B'
+const primary_light = '#305766'
 const light = {
   colors: {
     white900: '#FFFFFF',

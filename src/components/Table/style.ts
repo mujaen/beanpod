@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 
 export const TableWrapper = styled.div`
   overflow: hidden;
+  margin-bottom: 10px;
 
   table {
     width: 100%;
@@ -25,12 +26,12 @@ export const TableHeadCell = styled.th`
   padding: 7px 0;
   background-color: ${({ theme }) => theme.colors.gray200};
 
-  ${({ theme }) => theme.fonts.M100};
+  ${({ theme }) => theme.fonts.R100};
   color: ${({ theme }) => theme.colors.gray800};
 `
 
 export const TableCell = styled.td`
-  padding: 7px 0;
+  padding: 7px 16px;
 
   ${({ theme }) => theme.fonts.L100};
   color: ${({ theme }) => theme.colors.gray800};

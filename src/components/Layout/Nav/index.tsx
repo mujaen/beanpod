@@ -96,7 +96,7 @@ function Nav() {
       </h1>
       <ul>
         {navList.map(items => (
-          <Item {...items} />
+          <Item key={items.title} {...items} />
         ))}
       </ul>
     </Wrapper>

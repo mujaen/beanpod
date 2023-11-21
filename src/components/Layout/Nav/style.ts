@@ -8,7 +8,7 @@ export const Wrapper = styled.nav`
   background-color: ${({ theme }) => theme.colors.point100};
 
   h1 {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 16px;
   }
 `

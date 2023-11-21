@@ -17,7 +17,7 @@ const height = {
 }
 
 const width = {
-  small: '50px',
+  small: '58px',
   medium: '80px',
   large: '110px',
   wide: '140px',
@@ -40,6 +40,13 @@ export const StyledButton = styled.button<ButtonProps>`
 
   border: 1px solid
     ${({ theme, disabled }) => (disabled ? theme.colors.gray400 : theme.colors.gray600)};
-  background-color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.gray100 : theme.colors.white900};
+  background-color: ${({ theme }) => theme.colors.white900};
+
+  &:hover,
+  &:focus {
+    color: ${({ theme, disabled }) => (disabled ? theme.colors.gray600 : theme.colors.white900)};
+    background-color: ${({ theme, disabled }) =>
+      disabled ? theme.colors.white900 : theme.colors.gray600};
+    outline: none;
+  }
 `
