@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import PageHeader from '#components/PageHeader'
 import Table, { ColumnsProps } from '#components/Table'
+import PaginationGroup from '#components/PaginationGroup'
 import Button from '#components/Button'
+import Input from '#components/Input'
 import Select from '#components/Select'
+import SearchBar from '#components/SearchBar'
 
 import { Contents } from '#components/Layout/style'
+import { SearchWrapper, Wrapper } from '#components/SearchBar/style'
 import { TableCell, Total } from '#components/Table/style'
 
 type Level = '다이아' | '골드' | '실버'
@@ -14,18 +18,19 @@ type State = '활동중' | '휴면' | '일시정지' | '정지'
 
 type Sex = '남성' | '여성'
 
-type Confirm = '대기' | '노출' | '숨김'
+type Confirm = '1' | '2' | '3'
 
 interface MemberData {
   id: number
-  email: string
   nickname: string
+  email: string
   age: number
   sex: Sex
   level: Level
   certify: boolean
   confirm: Confirm
   state: State
+  recommender: string
   pauseDate?: string // ISO8601 UTC
   createDate: string // ISO8601 UTC
   updateDate?: string // ISO8601 UTC
@@ -36,76 +41,77 @@ interface MemberData {
 export const data = [
   {
     id: 1,
-    email: 'jinjerkim@gmail.com',
     nickname: '진저',
+    email: 'jinjerkim@gmail.com',
     age: 34,
     sex: '남성',
     level: '골드',
     certify: true,
-    confirm: '노출',
+    confirm: '1',
     state: '활동중',
-    pauseDate: '',
+    recommender: '소소미',
     createDate: '2023/09/05',
-    updateDate: '',
-    deleteDate: '',
   },
   {
     id: 2,
-    email: 'jinjerkim@gmail.com',
     nickname: '마카롱조아',
+    email: 'jinjerkim@gmail.com',
     age: 37,
     sex: '여성',
     level: '다이아',
     certify: false,
-    confirm: '숨김',
+    confirm: '2',
     state: '휴면',
-    pauseDate: '',
+    recommender: '',
     createDate: '2023/09/05',
-    updateDate: '',
-    deleteDate: '',
   },
   {
-    id: 3,
-    email: 'jinjerkim@gmail.com',
+    id: 99999,
     nickname: '스타벅스남',
+    email: 'jinjerkim@gmail.com',
     age: 37,
     sex: '남성',
     level: '실버',
     certify: false,
-    confirm: '대기',
+    confirm: '3',
     state: '일시정지',
-    pauseDate: '',
+    recommender: '',
     createDate: '2023/09/05',
-    updateDate: '',
-    deleteDate: '',
   },
 ] as MemberData[]
 
 function Member({}) {
+  const totalPage = 10
+  const [currentPage, setCurrentPage] = useState(1)
   const columns: ColumnsProps<MemberData>[] = [
     {
       accessor: 'id',
       value: '번호',
+      width: 60,
+    },
+    {
+      accessor: 'nickname',
+      value: '닉네임',
+      width: 150,
     },
     {
       accessor: 'email',
       value: '이메일',
     },
     {
-      accessor: 'nickname',
-      value: '닉네임',
-    },
-    {
       accessor: 'sex',
       value: '성별',
+      width: 80,
     },
     {
       accessor: 'level',
       value: '등급',
+      width: 80,
     },
     {
       accessor: 'certify',
       value: '번호인증 여부',
+      width: 100,
     },
     {
       accessor: 'confirm',
@@ -114,26 +120,22 @@ function Member({}) {
     {
       accessor: 'state',
       value: '상태',
+      width: 100,
     },
     {
-      accessor: 'pauseDate',
-      value: '일시정지 기간',
+      accessor: 'recommender',
+      value: '추천인',
+      width: 100,
     },
     {
       accessor: 'createDate',
       value: '가입일',
-    },
-    {
-      accessor: 'updateDate',
-      value: '수정일',
-    },
-    {
-      accessor: 'deleteDate',
-      value: '탈퇴일',
+      width: 120,
     },
     {
       accessor: 'detail',
-      value: '상세보기',
+      value: '회원정보',
+      width: 100,
     },
   ]
 
@@ -144,18 +146,106 @@ function Member({}) {
     },
     {
       accessor: '2',
-      value: '공개',
+      value: '노출',
     },
     {
       accessor: '3',
-      value: '미공개',
+      value: '숨김',
     },
   ]
+
+  const searchField = [
+    { accessor: '', value: '전체' },
+    { accessor: 'email', value: '이메일' },
+    { accessor: 'nickname', value: '닉네임' },
+  ]
+
+  const sexField = [
+    { accessor: '', value: '전체' },
+    { accessor: 'male', value: '남성' },
+    { accessor: 'female', value: '여성' },
+  ]
+
+  const levelField = [
+    { accessor: '', value: '전체' },
+    { accessor: 'diamond', value: '다이아' },
+    { accessor: 'gold', value: '골드' },
+    { accessor: 'silver', value: '실버' },
+  ]
+
+  const stateField = [
+    { accessor: '', value: '전체' },
+    { accessor: 'active', value: '활동중' },
+    { accessor: 'dormancy', value: '휴면' },
+    { accessor: 'pause', value: '일시정지' },
+    { accessor: 'inactive', value: '정지' },
+  ]
+
+  const handleOnPageChange = (page: number) => {
+    setCurrentPage(page)
+  }
 
   return (
     <>
       <PageHeader title="회원관리" />
       <Contents>
+        <SearchWrapper>
+          <div>
+            <dl>
+              <dt>성별</dt>
+              <dd>
+                <Select
+                  options={sexField}
+                  defaultValue={sexField[0].accessor}
+                  onChange={value => alert(value.target.value)}
+                />
+              </dd>
+            </dl>
+            <dl>
+              <dt>등급</dt>
+              <dd>
+                <Select
+                  options={levelField}
+                  defaultValue={levelField[0].accessor}
+                  onChange={value => alert(value.target.value)}
+                />
+              </dd>
+            </dl>
+          </div>
+          <div>
+            <dl>
+              <dt>상태</dt>
+              <dd>
+                <Select
+                  options={stateField}
+                  defaultValue={stateField[0].accessor}
+                  onChange={value => alert(value.target.value)}
+                />
+              </dd>
+            </dl>
+            <dl>
+              <dt>가입기간</dt>
+              <dd>
+                <Wrapper>
+                  <Input type="date" max="9999-12-31" />
+                  <span>-</span>
+                  <Input type="date" max="9999-12-31" />
+                </Wrapper>
+              </dd>
+            </dl>
+          </div>
+          <div>
+            <dl>
+              <dt>상세 검색</dt>
+              <dd>
+                <SearchBar
+                  searchField={searchField}
+                  onCreate={({ type, value }) => console.log(type, value)}
+                />
+              </dd>
+            </dl>
+          </div>
+        </SearchWrapper>
         <Total>
           총 <strong>1개</strong>의 내역이 검색되었습니다
         </Total>
@@ -165,25 +255,29 @@ function Member({}) {
           renderItem={item => (
             <>
               <TableCell>{item.id}</TableCell>
-              <TableCell>{item.email}</TableCell>
               <TableCell>{item.nickname}</TableCell>
+              <TableCell>{item.email}</TableCell>
               <TableCell>{item.sex}</TableCell>
               <TableCell>{item.level}</TableCell>
               <TableCell>{item.certify ? '완료' : '미완료'}</TableCell>
               <TableCell>
-                <Select options={options} onChange={value => alert(value.target.value)} />
+                <Select
+                  options={options}
+                  key={item.confirm}
+                  defaultValue={item.confirm}
+                  onChange={value => alert(value.target.value)}
+                />
               </TableCell>
               <TableCell>{item.state}</TableCell>
-              <TableCell>{item.pauseDate}</TableCell>
+              <TableCell>{item.recommender}</TableCell>
               <TableCell>{item.createDate}</TableCell>
-              <TableCell>{item.updateDate}</TableCell>
-              <TableCell>{item.deleteDate}</TableCell>
               <TableCell>
-                <Button>보기</Button>
+                <Button>상세보기</Button>
               </TableCell>
             </>
           )}
         />
+        <PaginationGroup totalPage={totalPage} page={currentPage} paginateTo={handleOnPageChange} />
       </Contents>
     </>
   )
