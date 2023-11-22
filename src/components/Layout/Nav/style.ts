@@ -4,7 +4,7 @@ import Icon from '#components/Icon'
 
 export const Wrapper = styled.nav`
   width: 64px;
-  height: 100vh;
+  min-height: 100vh;
   background-color: ${({ theme }) => theme.colors.point100};
 
   h1 {

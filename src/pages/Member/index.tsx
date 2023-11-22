@@ -187,7 +187,7 @@ function Member({}) {
 
   return (
     <>
-      <PageHeader title="회원관리" />
+      <PageHeader title="회원 목록" />
       <Contents>
         <SearchWrapper>
           <div>
