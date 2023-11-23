@@ -27,7 +27,7 @@ export const TableHeadCell = styled.th`
   background-color: ${({ theme }) => theme.colors.gray200};
 
   ${({ theme }) => theme.fonts.R100};
-  color: ${({ theme }) => theme.colors.gray800};
+  color: ${({ theme }) => theme.colors.gray900};
 `
 
 export const TableCell = styled.td`

@@ -180,7 +180,10 @@ const light = {
     blue600: '#234684',
 
     point100: '#263f49',
-    point200: '#EE8F00',
+    point200: '#ED997E',
+    point300: '#EE8D6E',
+    point400: '#F6E9A3',
+    point500: '#E7D95E',
   },
   fonts: font_size_weight,
   text: {
@@ -234,7 +237,10 @@ const dark = {
     blue600: '#234684',
 
     point100: '#263f49',
-    point200: '#EE8F00',
+    point200: '#ED997E',
+    point300: '#EE8D6E',
+    point400: '#F6E9A3',
+    point500: '#E7D95E',
   },
   fonts: font_size_weight,
   text: {
