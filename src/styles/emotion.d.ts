@@ -32,6 +32,9 @@ declare module '@emotion/react' {
 
       point100: string
       point200: string
+      point300: string
+      point400: string
+      point500: string
     }
     fonts: {
       L900: string

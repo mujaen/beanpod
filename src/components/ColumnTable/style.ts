@@ -14,9 +14,30 @@ export const Wrapper = styled.div`
     border-bottom: 1px solid ${({ theme }) => theme.colors.gray500};
   }
 
+  ul {
+    display: flex;
+    gap: 30px;
+
+    margin-top: 30px;
+  }
+
+  button:first-of-type {
+    color: ${({ theme }) => theme.colors.white900};
+    border: 1px solid ${({ theme }) => theme.colors.point300};
+    background-color: ${({ theme }) => theme.colors.point200};
+  }
+
   dl {
     display: flex;
     border-bottom: 1px solid ${({ theme }) => theme.colors.gray500};
+  }
+
+  dt {
+    color: ${({ theme }) => theme.colors.gray900};
+  }
+
+  dd {
+    color: ${({ theme }) => theme.colors.gray800};
   }
 
   dt,
@@ -25,16 +46,23 @@ export const Wrapper = styled.div`
     align-items: center;
 
     width: 100%;
-    height: 48px;
+    height: 38px;
     padding: 0 16px;
     box-sizing: border-box;
-
-    color: ${({ theme }) => theme.colors.gray800};
     text-align: left;
   }
 
   select {
-    width: 140px;
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  button {
+    border-radius: 4px;
   }
 `
 

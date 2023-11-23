@@ -39,6 +39,15 @@ module.exports = options => ({
           target: 'es2015',
         },
       },
+      {
+        test: /\.(eot|otf|ttf|woff|woff2|jpe?g|png|gif)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: 'assets/images/[name].[ext]?[hash]',
+          },
+        },
+      },
     ],
   },
 })
