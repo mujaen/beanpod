@@ -11,52 +11,50 @@ import { TableHead, TableData } from '#components/ColumnTable/style'
 
 import ProfileImage from '#assets/images/pic.jpeg'
 
-type Level = 'diamon' | 'gold' | 'silver'
+type Level = 'diamond' | 'gold' | 'silver' //다이아, 골드, 실버
 
-type State = '활동중' | '휴면' | '일시정지' | '정지'
+type State = 'active' | 'dormancy' | 'pause' | 'ban' //활동중, 휴면, 일시정지, 영구정지
 
-type Sex = '남성' | '여성'
+type Sex = 'male' | 'female' //남성, 여성
 
-type Confirm = '1' | '2' | '3'
+type Confirm = 'waiting' | 'public' | 'private' //대기, 공개, 비공개
 
 interface MemberData {
-  id: number
-  nickname: string
-  email: string
-  age: number
-  height: number
-  job: string
-  salary: number
-  education: string
-  city: string
+  id: number //고유 id
+  nickname: string //닉네임
+  email: string //이메일
+  age: number //나이
+  height: number //키
+  job: string //직업
+  education: string //학력
+  city: string //지역
   mbti: string
-  hobby: string
-  sex: Sex
-  level: Level
-  drink: string
-  smoke: string
-  religion: string
-  certify: boolean
-  confirm: Confirm
-  state: State
-  recommender: string
-  pause?: boolean
-  ban?: boolean
-  reason?: string
-  block?: boolean
-  warning: number
-  minAge: number
-  maxAge: number
-  firstCity: string
-  secondCity: string
-  drinkType: string
-  religionType: string
-  smokeType: string
-  hobbyType: string
-  createDate: string // ISO8601 UTC
-  updateDate?: string // ISO8601 UTC
-  deleteDate?: string // ISO8601 UTC
-  detail?: boolean
+  hobby: string //취미
+  sex: Sex //성별
+  level: Level //등급
+  drink: string //음주
+  smoke: string //흡연
+  religion: string //종교
+  certify: boolean //번호인증 여부
+  confirm: Confirm //프로필공개 여부
+  state: State //회원상태
+  recommender: string //추천인
+  pause?: boolean //일시정지 여부
+  ban?: boolean //영구정지 여부
+  reason?: string //정지 사유
+  block?: boolean //지인차단 여부
+  warning: number //경고 횟수
+  minAge: number //이상형 최소 나이
+  maxAge: number //이상형 최대 나이
+  firstCity: string //이상형 선호지역1
+  secondCity: string //이상형 선호지역2
+  drinkType: string //이상형 음주 여부
+  religionType: string //이상형 종교 여부
+  smokeType: string //이상형 흡연여부
+  hobbyType: string //이상형 취미 여부
+  createDate: string // 가입일
+  updateDate?: string // 수정일
+  deleteDate?: string // 삭제일
 }
 
 export const data = {
@@ -66,20 +64,19 @@ export const data = {
   age: 34,
   height: 172,
   job: '백엔드 개발자',
-  salary: 6000,
   education: '4년제',
   city: '서울',
   mbti: 'ENFJ',
   hobby: '악기연주',
-  sex: '남성',
+  sex: 'male',
   level: 'gold',
   drink: '1',
   smoke: '2',
   religion: '기독교',
   certify: true,
-  confirm: '1',
-  state: '활동중',
-  recommender: '소소미',
+  confirm: 'waiting',
+  state: 'active',
+  recommender: '오박사',
   pause: false,
   ban: false,
   reason: '허위 프로필',
@@ -100,11 +97,30 @@ export const data = {
 
 function Dashboard({}) {
   const levelField = [
-    { accessor: '', value: '전체' },
     { accessor: 'diamond', value: '다이아' },
     { accessor: 'gold', value: '골드' },
     { accessor: 'silver', value: '실버' },
   ]
+
+  const confirmField = [
+    { accessor: 'waiting', value: '대기' },
+    { accessor: 'public', value: '공개' },
+    { accessor: 'private', value: '비공개' },
+  ]
+
+  const renderState = (state: string): string => {
+    switch (state) {
+      default:
+      case 'active':
+        return '활동중'
+      case 'dormancy':
+        return '휴면'
+      case 'pause':
+        return '일시정지'
+      case 'ban':
+        return '영구정지'
+    }
+  }
 
   return (
     <>
@@ -123,7 +139,7 @@ function Dashboard({}) {
                 <TableHead>나이</TableHead>
                 <TableData>{item.age}세</TableData>
                 <TableHead>성별</TableHead>
-                <TableData>{item.sex}</TableData>
+                <TableData>{item.sex === 'male' ? '남성' : '여성'}</TableData>
               </dl>
               <dl>
                 <TableHead>키</TableHead>
@@ -146,9 +162,15 @@ function Dashboard({}) {
                   />
                 </TableData>
                 <TableHead>프로필 공개 여부</TableHead>
-                <TableData>{item.confirm}</TableData>
+                <TableData>
+                  <Select
+                    options={confirmField}
+                    defaultValue={item.confirm}
+                    onChange={value => alert(value.target.value)}
+                  />
+                </TableData>
                 <TableHead>상태</TableHead>
-                <TableData>{item.state}</TableData>
+                <TableData>{renderState(item.state)}</TableData>
                 <TableHead>번호인증 여부</TableHead>
                 <TableData>{item.certify ? 'Y' : 'N'}</TableData>
               </dl>
@@ -168,10 +190,10 @@ function Dashboard({}) {
                 <TableData>{item.recommender}</TableData>
                 <TableHead>경고 횟수</TableHead>
                 <TableData>{item.warning}</TableData>
-                <TableHead></TableHead>
-                <TableHead></TableHead>
-                <TableHead></TableHead>
-                <TableHead></TableHead>
+                <TableData></TableData>
+                <TableData></TableData>
+                <TableData></TableData>
+                <TableData></TableData>
               </dl>
               <ButtonGroup align="center">
                 <Button size="medium" onClick={() => console.log('영구정지')}>
