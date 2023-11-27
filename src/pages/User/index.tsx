@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import PageHeader from '#components/PageHeader'
 import Table, { ColumnsProps } from '#components/Table'
@@ -274,7 +275,9 @@ function User({}) {
               <TableCell>{item.referrer_nick_name}</TableCell>
               <TableCell>{item.created_at}</TableCell>
               <TableCell>
-                <Button>상세보기</Button>
+                <Link key={item.seq} to={`/seq/${item.seq}`}>
+                  <Button>상세보기</Button>
+                </Link>
               </TableCell>
             </>
           )}

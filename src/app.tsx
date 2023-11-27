@@ -15,6 +15,7 @@ import Frame from '#components/Layout/Frame'
 
 import Dashboard from '#pages/Dashboard'
 import User from '#pages/User'
+import UserView from '#pages/User/View'
 import Login from '#pages/Login'
 
 export const defaultQueryFn = async ({ queryKey }: QueryFunctionContext) => {
@@ -62,6 +63,7 @@ ReactDOM.createRoot(rootNode).render(
           <Switch>
             <Route path="/" exact component={Dashboard} />
             <Route path="/user" component={User} />
+            <Route path="/seq/:id" component={UserView} />
             <Route path="/login" component={Login} />
             <Redirect from="*" to="/" />
           </Switch>
