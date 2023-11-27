@@ -37,11 +37,6 @@ function Nav() {
       path: '/payment',
     },
     {
-      title: '알림',
-      renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="alarm" isSelected={isActived} />,
-      path: '/alarm',
-    },
-    {
       title: '문의',
       renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="cs" isSelected={isActived} />,
       path: '/cs',
