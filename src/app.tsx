@@ -14,7 +14,7 @@ import { CustomThemeProvider } from '#styles/themeProvider'
 import Frame from '#components/Layout/Frame'
 
 import Dashboard from '#pages/Dashboard'
-import Member from '#pages/Member'
+import User from '#pages/User'
 import Login from '#pages/Login'
 
 export const defaultQueryFn = async ({ queryKey }: QueryFunctionContext) => {
@@ -61,7 +61,7 @@ ReactDOM.createRoot(rootNode).render(
         <Frame>
           <Switch>
             <Route path="/" exact component={Dashboard} />
-            <Route path="/member" component={Member} />
+            <Route path="/user" component={User} />
             <Route path="/login" component={Login} />
             <Redirect from="*" to="/" />
           </Switch>

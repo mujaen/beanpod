@@ -28,4 +28,8 @@ export const StyledInput = styled.input<InputProps>`
     outline: none;
     border: 1px solid ${({ theme }) => theme.colors.blue500};
   }
+
+  ::-webkit-input-placeholder {
+    color: ${({ theme }) => theme.colors.gray600};
+  }
 `
