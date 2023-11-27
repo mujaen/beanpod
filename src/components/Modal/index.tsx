@@ -4,7 +4,7 @@ import Icon from '#components/Icon'
 
 import { Container, Wrapper, Content, CloseButton } from './style'
 
-interface ModalProps {
+export interface ModalProps {
   show: boolean | undefined
   onClose: (show: false) => void
   children?: ReactNode

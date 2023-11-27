@@ -26,15 +26,19 @@ export const Content = styled.div`
   dl {
     display: flex;
     border-bottom: 1px solid ${({ theme }) => theme.colors.gray500};
-
-    margin-bottom: 30px;
   }
 
   dl:first-of-type {
     border-top: 1px solid ${({ theme }) => theme.colors.gray500};
   }
 
+  dl:last-of-type {
+    margin-bottom: 30px;
+  }
+
   dt {
+    width: 100px;
+
     color: ${({ theme }) => theme.colors.gray900};
     background-color: ${({ theme }) => theme.colors.gray200};
 
@@ -42,6 +46,8 @@ export const Content = styled.div`
   }
 
   dd {
+    width: 180px;
+
     color: ${({ theme }) => theme.colors.gray800};
     ${({ theme }) => theme.fonts.L100};
   }
@@ -51,7 +57,6 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
 
-    width: 100%;
     height: 38px;
     padding: 0 16px;
     box-sizing: border-box;
@@ -59,7 +64,7 @@ export const Content = styled.div`
   }
 
   input {
-    width: 140px;
+    width: 100%;
   }
 `
 

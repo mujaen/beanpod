@@ -103,6 +103,7 @@ export const data = {
 
 function Dashboard({}) {
   const [isVisibleModal, setIsVisibleModal] = useState<boolean>()
+  const [suspend, setSuspend] = useState('warning')
 
   const rankField = [
     { accessor: 'diamond', value: '다이아' },
@@ -214,13 +215,31 @@ function Dashboard({}) {
                 <TableData></TableData>
               </dl>
               <ButtonGroup align="center">
-                <Button size="medium" onClick={() => setIsVisibleModal(true)}>
+                <Button
+                  size="medium"
+                  onClick={() => {
+                    setSuspend('ban')
+                    setIsVisibleModal(true)
+                  }}
+                >
                   영구정지
                 </Button>
-                <Button size="medium" onClick={() => setIsVisibleModal(true)}>
+                <Button
+                  size="medium"
+                  onClick={() => {
+                    setSuspend('pause')
+                    setIsVisibleModal(true)
+                  }}
+                >
                   일시정지
                 </Button>
-                <Button size="medium" onClick={() => setIsVisibleModal(true)}>
+                <Button
+                  size="medium"
+                  onClick={() => {
+                    setSuspend('warning')
+                    setIsVisibleModal(true)
+                  }}
+                >
                   경고부여
                 </Button>
               </ButtonGroup>
@@ -282,7 +301,11 @@ function Dashboard({}) {
           )}
         />
       </Contents>
-      <UserSuspendModal show={isVisibleModal} onClose={show => setIsVisibleModal(show)} />
+      <UserSuspendModal
+        show={isVisibleModal}
+        suspend={suspend}
+        onClose={show => setIsVisibleModal(show)}
+      />
     </>
   )
 }
