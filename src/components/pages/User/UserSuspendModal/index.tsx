@@ -7,7 +7,7 @@ import Button from '#components/Button'
 function UserSuspendModal({ show, onClose }) {
   return (
     <Modal show={show} onClose={onClose}>
-      <h2>경고 부여 및 정지</h2>
+      <h2>회원 제재</h2>
       <dl>
         <dt>정지 사유</dt>
         <dd>
