@@ -238,7 +238,7 @@ function Member({}) {
               </dd>
             </dl>
             <dl>
-              <dt>검색기간</dt>
+              <dt>검색 기간</dt>
               <dd>
                 <Wrapper>
                   <Input type="date" max="9999-12-31" />

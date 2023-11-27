@@ -275,7 +275,7 @@ function User({}) {
               <TableCell>{item.referrer_nick_name}</TableCell>
               <TableCell>{item.created_at}</TableCell>
               <TableCell>
-                <Link key={item.seq} to={`/seq/${item.seq}`}>
+                <Link key={item.seq} to={`/view/${item.seq}`}>
                   <Button>상세보기</Button>
                 </Link>
               </TableCell>
