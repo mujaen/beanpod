@@ -12,85 +12,109 @@ import { Contents } from '#components/Layout/style'
 import { SearchWrapper, Wrapper } from '#components/SearchBar/style'
 import { TableCell, Total } from '#components/Table/style'
 
-type Level = '다이아' | '골드' | '실버'
+type Rank = 'diamond' | 'gold' | 'silver' //다이아, 골드, 실버
 
-type State = '활동중' | '휴면' | '일시정지' | '정지'
+type State = 'active' | 'dormancy' | 'pause' | 'ban' //활동중, 휴면, 일시정지, 영구정지
 
-type Sex = '남성' | '여성'
+type Gender = 'male' | 'female' //남성, 여성
 
-type Confirm = '1' | '2' | '3'
+type Confirm = 'waiting' | 'public' | 'private' //대기, 공개, 비공개
 
-interface MemberData {
-  id: number
-  nickname: string
+interface UserData {
+  seq: number
+  rank: Rank
   email: string
+  nick_name: string
   age: number
-  sex: Sex
-  level: Level
-  certify: boolean
-  confirm: Confirm
-  state: State
-  recommender: string
-  pauseDate?: string // ISO8601 UTC
-  createDate: string // ISO8601 UTC
-  updateDate?: string // ISO8601 UTC
-  deleteDate?: string // ISO8601 UTC
+  kakao_id?: string
+  phone?: string
+  gender: Gender
+  height?: number
+  job?: string
+  education_level?: string
+  location?: string
+  mbti?: string
+  hobbies?: string //취미
+
+  drink?: string //음주
+  smoke?: string //흡연
+  religion?: string //종교
+  is_phone_verified: boolean //번호인증 여부
+  is_profile_public: Confirm //프로필공개 여부
+  state: State //회원상태
+  referrer_nick_name: string //추천인
+  is_pause?: boolean //일시정지 여부
+  is_suspended?: boolean //영구정지 여부
+  suspension_reason?: string //정지 사유
+  is_phone_block?: boolean //지인차단 여부
+  warning_cnt?: number //경고 횟수
+  created_at: string // 가입일
+  updated_at?: string // 수정일
+  deleted_at?: string // 삭제일
+  min_age?: number //이상형 최소 나이
+  max_age?: number //이상형 최대 나이
+  preferred_location_1?: string //이상형 선호지역1
+  preferred_location_2?: string //이상형 선호지역2
+  is_drinker?: string //이상형 음주 여부
+  is_religion?: string //이상형 종교 여부
+  is_smoker?: string //이상형 흡연여부
+  is_hobbies?: string //이상형 취미 여부
   detail?: boolean
 }
 
 export const data = [
   {
-    id: 1,
-    nickname: '진저',
+    seq: 1,
+    nick_name: '진저',
     email: 'jinjerkim@gmail.com',
     age: 34,
-    sex: '남성',
-    level: '골드',
-    certify: true,
-    confirm: '1',
-    state: '활동중',
-    recommender: '소소미',
-    createDate: '2023/09/05',
+    gender: 'male',
+    rank: 'gold',
+    is_phone_verified: true,
+    is_profile_public: 'waiting',
+    state: 'active',
+    referrer_nick_name: '소소미',
+    created_at: '2023/09/05',
   },
   {
-    id: 2,
-    nickname: '마카롱조아',
+    seq: 2,
+    nick_name: '마카롱조아',
     email: 'jinjerkim@gmail.com',
     age: 37,
-    sex: '여성',
-    level: '다이아',
-    certify: false,
-    confirm: '2',
-    state: '휴면',
-    recommender: '',
-    createDate: '2023/09/05',
+    gender: 'female',
+    rank: 'diamond',
+    is_phone_verified: false,
+    is_profile_public: 'public',
+    state: 'pause',
+    referrer_nick_name: '',
+    created_at: '2023/09/05',
   },
   {
-    id: 99999,
-    nickname: '스타벅스남',
+    seq: 99999,
+    nick_name: '스타벅스남',
     email: 'jinjerkim@gmail.com',
     age: 37,
-    sex: '남성',
-    level: '실버',
-    certify: false,
-    confirm: '3',
-    state: '일시정지',
-    recommender: '',
-    createDate: '2023/09/05',
+    gender: 'male',
+    rank: 'silver',
+    is_phone_verified: false,
+    is_profile_public: 'private',
+    state: 'dormancy',
+    referrer_nick_name: '',
+    created_at: '2023/09/05',
   },
-] as MemberData[]
+] as UserData[]
 
-function Member({}) {
+function User({}) {
   const totalPage = 10
   const [currentPage, setCurrentPage] = useState(1)
-  const columns: ColumnsProps<MemberData>[] = [
+  const columns: ColumnsProps<UserData>[] = [
     {
-      accessor: 'id',
+      accessor: 'seq',
       value: '번호',
       width: 60,
     },
     {
-      accessor: 'nickname',
+      accessor: 'nick_name',
       value: '닉네임',
       width: 150,
     },
@@ -99,22 +123,22 @@ function Member({}) {
       value: '이메일',
     },
     {
-      accessor: 'sex',
+      accessor: 'gender',
       value: '성별',
       width: 80,
     },
     {
-      accessor: 'level',
+      accessor: 'rank',
       value: '등급',
       width: 80,
     },
     {
-      accessor: 'certify',
+      accessor: 'is_phone_verified',
       value: '번호인증 여부',
       width: 100,
     },
     {
-      accessor: 'confirm',
+      accessor: 'is_profile_public',
       value: '프로필 공개여부',
     },
     {
@@ -123,12 +147,12 @@ function Member({}) {
       width: 100,
     },
     {
-      accessor: 'recommender',
+      accessor: 'referrer_nick_name',
       value: '추천인',
       width: 100,
     },
     {
-      accessor: 'createDate',
+      accessor: 'created_at',
       value: '가입일',
       width: 120,
     },
@@ -139,34 +163,19 @@ function Member({}) {
     },
   ]
 
-  const options = [
-    {
-      accessor: '1',
-      value: '대기',
-    },
-    {
-      accessor: '2',
-      value: '노출',
-    },
-    {
-      accessor: '3',
-      value: '숨김',
-    },
-  ]
-
   const searchField = [
     { accessor: '', value: '전체' },
     { accessor: 'email', value: '이메일' },
     { accessor: 'nickname', value: '닉네임' },
   ]
 
-  const sexField = [
+  const genderField = [
     { accessor: '', value: '전체' },
     { accessor: 'male', value: '남성' },
     { accessor: 'female', value: '여성' },
   ]
 
-  const levelField = [
+  const rankField = [
     { accessor: '', value: '전체' },
     { accessor: 'diamond', value: '다이아' },
     { accessor: 'gold', value: '골드' },
@@ -195,8 +204,8 @@ function Member({}) {
               <dt>성별</dt>
               <dd>
                 <Select
-                  options={sexField}
-                  defaultValue={sexField[0].accessor}
+                  options={genderField}
+                  defaultValue={genderField[0].accessor}
                   onChange={value => alert(value.target.value)}
                 />
               </dd>
@@ -205,8 +214,8 @@ function Member({}) {
               <dt>등급</dt>
               <dd>
                 <Select
-                  options={levelField}
-                  defaultValue={levelField[0].accessor}
+                  options={rankField}
+                  defaultValue={rankField[0].accessor}
                   onChange={value => alert(value.target.value)}
                 />
               </dd>
@@ -254,23 +263,16 @@ function Member({}) {
           data={data}
           renderItem={item => (
             <>
-              <TableCell>{item.id}</TableCell>
-              <TableCell>{item.nickname}</TableCell>
+              <TableCell>{item.seq}</TableCell>
+              <TableCell>{item.nick_name}</TableCell>
               <TableCell>{item.email}</TableCell>
-              <TableCell>{item.sex}</TableCell>
-              <TableCell>{item.level}</TableCell>
-              <TableCell>{item.certify ? '완료' : '미완료'}</TableCell>
-              <TableCell>
-                <Select
-                  options={options}
-                  key={item.confirm}
-                  defaultValue={item.confirm}
-                  onChange={value => alert(value.target.value)}
-                />
-              </TableCell>
+              <TableCell>{item.gender}</TableCell>
+              <TableCell>{item.rank}</TableCell>
+              <TableCell>{item.is_phone_verified ? '완료' : '미완료'}</TableCell>
+              <TableCell>{item.is_profile_public}</TableCell>
               <TableCell>{item.state}</TableCell>
-              <TableCell>{item.recommender}</TableCell>
-              <TableCell>{item.createDate}</TableCell>
+              <TableCell>{item.referrer_nick_name}</TableCell>
+              <TableCell>{item.created_at}</TableCell>
               <TableCell>
                 <Button>상세보기</Button>
               </TableCell>
@@ -283,4 +285,4 @@ function Member({}) {
   )
 }
 
-export default Member
+export default User

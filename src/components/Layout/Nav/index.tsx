@@ -27,7 +27,7 @@ function Nav() {
     {
       title: '회원',
       renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="member" isSelected={isActived} />,
-      path: '/member',
+      path: '/user',
     },
     {
       title: '결제',
@@ -35,11 +35,6 @@ function Nav() {
         <StyledIcon icon="payment" isSelected={isActived} />
       ),
       path: '/payment',
-    },
-    {
-      title: '계정',
-      renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="acount" isSelected={isActived} />,
-      path: '/acount',
     },
     {
       title: '알림',
@@ -65,6 +60,11 @@ function Nav() {
       title: '마케팅',
       renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="ad" isSelected={isActived} />,
       path: '/ad',
+    },
+    {
+      title: '계정',
+      renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="acount" isSelected={isActived} />,
+      path: '/acount',
     },
   ]
 
