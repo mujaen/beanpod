@@ -49,7 +49,7 @@ function Nav() {
     {
       title: '불량회원',
       renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="bad" isSelected={isActived} />,
-      path: '/bad',
+      path: '/member',
     },
     {
       title: '통계',
