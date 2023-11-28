@@ -23,7 +23,7 @@ export const Wrapper = styled.header`
 export const New = styled.span`
   overflow: hidden;
   position: absolute;
-  top: 3px;
+  top: 5px;
   right: 4px;
   width: 6px;
   height: 6px;
