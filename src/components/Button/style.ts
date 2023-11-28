@@ -34,7 +34,7 @@ export const StyledButton = styled.button<ButtonProps>`
   width: ${({ size }) => size && width[size]};
 
   font-size: ${({ size }) => size && fontSizes[size]};
-  color: ${({ theme, disabled }) => (disabled ? theme.colors.gray600 : theme.colors.gray800)};
+  color: ${({ theme, disabled }) => (disabled ? theme.colors.gray600 : theme.colors.gray900)};
 
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 

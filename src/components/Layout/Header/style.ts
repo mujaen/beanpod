@@ -18,6 +18,10 @@ export const Wrapper = styled.header`
   nav a {
     position: relative;
   }
+
+  nav span {
+    cursor: pointer;
+  }
 `
 
 export const New = styled.span`
