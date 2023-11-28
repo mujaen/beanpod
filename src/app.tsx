@@ -17,6 +17,7 @@ import Dashboard from '#pages/Dashboard'
 import User from '#pages/User'
 import UserView from '#pages/User/View'
 import Member from '#pages/Member'
+import Support from '#pages/Support'
 import Administrator from '#pages/Administrator'
 import Login from '#pages/Login'
 
@@ -66,8 +67,8 @@ ReactDOM.createRoot(rootNode).render(
             <Route path="/" exact component={Dashboard} />
             <Route path="/user" component={User} />
             <Route path="/view/:id" component={UserView} />
-
             <Route path="/acount" component={Administrator} />
+            <Route path="/support" component={Support} />
             <Route path="/member" component={Member} />
             <Route path="/login" component={Login} />
             <Redirect from="*" to="/" />

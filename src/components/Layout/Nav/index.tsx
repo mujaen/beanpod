@@ -39,7 +39,7 @@ function Nav() {
     {
       title: '문의',
       renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="cs" isSelected={isActived} />,
-      path: '/cs',
+      path: '/support',
     },
     {
       title: '불량회원',
