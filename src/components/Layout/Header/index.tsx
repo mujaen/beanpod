@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { NavLink } from 'react-router-dom'
 
 import Icon from '#components/Icon'
+import Modal from './Modal'
 
 import { Wrapper, New } from './style'
 
 function Header() {
+  const [isVisibleModal, setIsVisibleModal] = useState<boolean>(false)
+
   return (
     <Wrapper>
       <nav>
@@ -14,10 +17,11 @@ function Header() {
           <Icon icon="new" width={26} height={26} />
           <New>NEW</New>
         </NavLink>
-        <NavLink to="/mypage">
+        <span onClick={() => setIsVisibleModal(!isVisibleModal)}>
           <Icon icon="mypage" width={26} height={26} />
-        </NavLink>
+        </span>
       </nav>
+      {isVisibleModal && <Modal />}
     </Wrapper>
   )
 }
