@@ -42,6 +42,7 @@ interface UserData {
   religion?: string //종교
   is_phone_verified: boolean //번호인증 여부
   is_profile_public: Confirm //프로필공개 여부
+  is_profile_contents: boolean //소개글등록 여부
   state: State //회원상태
   referrer_nick_name: string //추천인
   is_pause?: boolean //일시정지 여부
@@ -73,6 +74,7 @@ export const data = [
     rank: 'gold',
     is_phone_verified: true,
     is_profile_public: 'waiting',
+    is_profile_contents: false,
     state: 'active',
     referrer_nick_name: '소소미',
     created_at: '2023/09/05',
@@ -86,6 +88,7 @@ export const data = [
     rank: 'diamond',
     is_phone_verified: false,
     is_profile_public: 'public',
+    is_profile_contents: true,
     state: 'pause',
     referrer_nick_name: '',
     created_at: '2023/09/05',
@@ -99,6 +102,7 @@ export const data = [
     rank: 'silver',
     is_phone_verified: false,
     is_profile_public: 'private',
+    is_profile_contents: false,
     state: 'dormancy',
     referrer_nick_name: '',
     created_at: '2023/09/05',
@@ -134,8 +138,8 @@ function User({}) {
       width: 80,
     },
     {
-      accessor: 'is_phone_verified',
-      value: '번호인증 여부',
+      accessor: 'is_profile_contents',
+      value: '프롬프트 여부',
       width: 100,
     },
     {
@@ -267,9 +271,9 @@ function User({}) {
               <TableCell>{item.seq}</TableCell>
               <TableCell>{item.nick_name}</TableCell>
               <TableCell>{item.email}</TableCell>
-              <TableCell>{item.gender}</TableCell>
+              <TableCell>{item.gender === 'female' ? '여' : '남'}</TableCell>
               <TableCell>{item.rank}</TableCell>
-              <TableCell>{item.is_phone_verified ? '완료' : '미완료'}</TableCell>
+              <TableCell>{item.is_profile_contents ? '완료' : '미완료'}</TableCell>
               <TableCell>{item.is_profile_public}</TableCell>
               <TableCell>{item.state}</TableCell>
               <TableCell>{item.referrer_nick_name}</TableCell>

@@ -16,6 +16,7 @@ import Frame from '#components/Layout/Frame'
 import Dashboard from '#pages/Dashboard'
 import User from '#pages/User'
 import UserView from '#pages/User/View'
+import Payment from '#pages/Payment'
 import Member from '#pages/Member'
 import Support from '#pages/Support'
 import Administrator from '#pages/Administrator'
@@ -67,6 +68,7 @@ ReactDOM.createRoot(rootNode).render(
             <Route path="/" exact component={Dashboard} />
             <Route path="/user" component={User} />
             <Route path="/view/:id" component={UserView} />
+            <Route path="/payment" component={Payment} />
             <Route path="/acount" component={Administrator} />
             <Route path="/support" component={Support} />
             <Route path="/member" component={Member} />

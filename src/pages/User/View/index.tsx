@@ -41,6 +41,7 @@ interface UserData {
   religion: string //종교
   is_phone_verified: boolean //번호인증 여부
   is_profile_public: Confirm //프로필공개 여부
+  is_profile_contents: boolean //소개글등록 여부
   state: State //회원상태
   referrer_nick_name: string //추천인
   is_pause?: boolean //일시정지 여부
@@ -66,7 +67,7 @@ export const data = {
   rank: 'gold',
   email: 'jinjerkim@gmail.com',
   nick_name: '진저',
-  kakao_id: 'mujaen',
+  kakao_id: 'jinjer',
   phone: '010-1234-5678',
   age: 34,
   gender: 'male',
@@ -81,6 +82,7 @@ export const data = {
   religion: '기독교',
   is_phone_verified: true,
   is_profile_public: 'waiting',
+  is_profile_contents: false,
   state: 'active',
   referrer_nick_name: '오박사',
   is_pause: false,
@@ -188,10 +190,11 @@ function UserView({}) {
                     onChange={value => alert(value.target.value)}
                   />
                 </TableData>
+
+                <TableHead>소개글 등록 여부</TableHead>
+                <TableData>{item.is_profile_contents ? 'Y' : 'N'}</TableData>
                 <TableHead>상태</TableHead>
                 <TableData>{renderState(item.state)}</TableData>
-                <TableHead>번호인증 여부</TableHead>
-                <TableData>{item.is_phone_verified ? 'Y' : 'N'}</TableData>
               </dl>
               <dl>
                 <TableHead>지인차단 여부</TableHead>
@@ -209,8 +212,8 @@ function UserView({}) {
                 <TableData>{item.referrer_nick_name}</TableData>
                 <TableHead>경고 횟수</TableHead>
                 <TableData>{item.warning_cnt}</TableData>
-                <TableData></TableData>
-                <TableData></TableData>
+                <TableHead>번호인증 여부</TableHead>
+                <TableData>{item.is_phone_verified ? 'Y' : 'N'}</TableData>
                 <TableData></TableData>
                 <TableData></TableData>
               </dl>
