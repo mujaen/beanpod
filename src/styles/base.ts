@@ -2,6 +2,7 @@ import { css, Theme } from '@emotion/react'
 
 const base = (theme: Theme) => css`
   body {
+    font-size: 15px;
     background: ${theme.colors.gray100};
   }
   body,

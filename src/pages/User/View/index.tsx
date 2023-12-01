@@ -278,6 +278,16 @@ function UserView({}) {
                 <TableHead>취미</TableHead>
                 <TableData>{item.hobbies}</TableData>
               </dl>
+              <dl>
+                <TableHead>나의 스타일</TableHead>
+                <TableData>E001, E018, E026</TableData>
+                <TableHead>이상형</TableHead>
+                <TableData>B001, B018, B026</TableData>
+                <TableData></TableData>
+                <TableData></TableData>
+                <TableData></TableData>
+                <TableData></TableData>
+              </dl>
               <h3>이상형 설정</h3>
               <dl>
                 <TableHead>최소 나이</TableHead>
