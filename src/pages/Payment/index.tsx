@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 import PageHeader from '#components/PageHeader'
 import Table, { ColumnsProps } from '#components/Table'
-import Button from '#components/Button'
 import Input from '#components/Input'
 import Select from '#components/Select'
 import SearchBar from '#components/SearchBar'
