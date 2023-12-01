@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import Header from './Header'
 import Nav from './Nav'
@@ -10,13 +11,23 @@ interface FrameProps {
 }
 
 function Frame({ children }: FrameProps) {
+  const location = useLocation()
+  const pathname = location.pathname
+
+  console.log(pathname)
   return (
     <Wrapper>
-      <Nav />
-      <Container>
-        <Header />
+      {pathname === '/login' ? (
         <>{children}</>
-      </Container>
+      ) : (
+        <>
+          <Nav />
+          <Container>
+            <Header />
+            <>{children}</>
+          </Container>
+        </>
+      )}
     </Wrapper>
   )
 }

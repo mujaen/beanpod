@@ -46,16 +46,16 @@ function Nav() {
       renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="bad" isSelected={isActived} />,
       path: '/member',
     },
-    {
-      title: '통계',
-      renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="chart" isSelected={isActived} />,
-      path: '/chart',
-    },
-    {
-      title: '마케팅',
-      renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="ad" isSelected={isActived} />,
-      path: '/ad',
-    },
+    // {
+    //   title: '통계',
+    //   renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="chart" isSelected={isActived} />,
+    //   path: '/chart',
+    // },
+    // {
+    //   title: '마케팅',
+    //   renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="ad" isSelected={isActived} />,
+    //   path: '/ad',
+    // },
     {
       title: '계정',
       renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="acount" isSelected={isActived} />,
