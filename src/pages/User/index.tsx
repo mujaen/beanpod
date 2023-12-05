@@ -139,7 +139,7 @@ function User({}) {
     },
     {
       accessor: 'is_profile_contents',
-      value: '프롬프트 여부',
+      value: '인터뷰 여부',
       width: 100,
     },
     {
@@ -279,7 +279,7 @@ function User({}) {
               <TableCell>{item.referrer_nick_name}</TableCell>
               <TableCell>{item.created_at}</TableCell>
               <TableCell>
-                <Link key={item.seq} to={`/view/${item.seq}`}>
+                <Link key={item.seq} to={`/user/${item.seq}`}>
                   <Button>상세보기</Button>
                 </Link>
               </TableCell>
