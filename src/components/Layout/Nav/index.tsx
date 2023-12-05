@@ -27,25 +27,30 @@ function Nav() {
     {
       title: '회원',
       renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="member" isSelected={isActived} />,
-      path: '/user',
+      path: '/user/list',
     },
     {
       title: '결제',
       renderIcon: ({ isActived }: IconProps) => (
         <StyledIcon icon="payment" isSelected={isActived} />
       ),
-      path: '/payment',
+      path: '/payment/list',
     },
     {
       title: '문의',
       renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="cs" isSelected={isActived} />,
-      path: '/support',
+      path: '/support/list',
     },
     {
       title: '불량회원',
       renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="bad" isSelected={isActived} />,
-      path: '/member',
+      path: '/member/list',
     },
+    // {
+    //   title: '우수회원',
+    //   renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="vip" isSelected={isActived} />,
+    //   path: '/vip/list',
+    // },
     // {
     //   title: '통계',
     //   renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="chart" isSelected={isActived} />,
@@ -59,7 +64,7 @@ function Nav() {
     {
       title: '계정',
       renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="acount" isSelected={isActived} />,
-      path: '/acount',
+      path: '/acount/list',
     },
   ]
 

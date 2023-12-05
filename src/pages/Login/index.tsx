@@ -89,13 +89,13 @@ function Login({}): JSX.Element {
             />
             {errors.pdata && <span>{errors.pdata?.message}</span>}
 
-            <Link href="/">아이디ㆍ비밀번호 찾기</Link>
+            <Link to="/">아이디ㆍ비밀번호 찾기</Link>
 
             <Button type="submit">로그인</Button>
 
             <Register>
               아직 회원이 아닌가요?
-              <Link href="/">회원가입</Link>
+              <Link to="/join">회원가입</Link>
             </Register>
           </Form>
         </FormContent>

@@ -164,7 +164,7 @@ const light = {
 
     gray100: '#F2F5F6',
     gray200: '#F1EEED',
-    gray300: '#ECF0F5',
+    gray300: '#E8EDF3',
     gray400: '#E2E8F0',
     gray500: '#D7DADB',
     gray600: '#C2CBD6',
@@ -221,7 +221,7 @@ const dark = {
 
     gray100: '#F2F5F6',
     gray200: '#F1EEED',
-    gray300: '#ECF0F5',
+    gray300: '#E8EDF3',
     gray400: '#E2E8F0',
     gray500: '#D7DADB',
     gray600: '#C2CBD6',

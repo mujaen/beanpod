@@ -14,10 +14,9 @@ function Frame({ children }: FrameProps) {
   const location = useLocation()
   const pathname = location.pathname
 
-  console.log(pathname)
   return (
     <Wrapper>
-      {pathname === '/login' ? (
+      {pathname === '/login' || pathname === '/join' ? (
         <>{children}</>
       ) : (
         <>

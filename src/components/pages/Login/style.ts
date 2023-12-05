@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const Container = styled.div`
-  background-color: #e8edf3;
+  background-color: ${({ theme }) => theme.colors.gray300};
 
   display: flex;
 
@@ -22,7 +22,7 @@ export const ImageContent = styled.div`
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.blue500};
 
-  color: #f1f5f9;
+  color: ${({ theme }) => theme.colors.white900};
   display: flex;
   align-items: center;
   flex-direction: column;

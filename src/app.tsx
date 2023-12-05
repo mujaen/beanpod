@@ -20,6 +20,7 @@ import Payment from '#pages/Payment'
 import Member from '#pages/Member'
 import Support from '#pages/Support'
 import Administrator from '#pages/Administrator'
+import Join from '#pages/Join'
 import Login from '#pages/Login'
 
 export const defaultQueryFn = async ({ queryKey }: QueryFunctionContext) => {
@@ -66,12 +67,13 @@ ReactDOM.createRoot(rootNode).render(
         <Frame>
           <Switch>
             <Route path="/" exact component={Dashboard} />
-            <Route path="/user" component={User} />
-            <Route path="/view/:id" component={UserView} />
-            <Route path="/payment" component={Payment} />
-            <Route path="/acount" component={Administrator} />
-            <Route path="/support" component={Support} />
-            <Route path="/member" component={Member} />
+            <Route path="/user/list" component={User} />
+            <Route path="/user/:id" component={UserView} />
+            <Route path="/payment/list" component={Payment} />
+            <Route path="/acount/list" component={Administrator} />
+            <Route path="/support/list" component={Support} />
+            <Route path="/member/list" component={Member} />
+            <Route path="/join" component={Join} />
             <Route path="/login" component={Login} />
             <Redirect from="*" to="/" />
           </Switch>
