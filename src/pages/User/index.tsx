@@ -45,6 +45,7 @@ interface UserData {
   is_profile_contents: boolean //소개글등록 여부
   state: State //회원상태
   referrer_nick_name: string //추천인
+  is_special_member?: boolean // 우수회원 여부
   is_pause?: boolean //일시정지 여부
   is_suspended?: boolean //영구정지 여부
   suspension_reason?: string //정지 사유

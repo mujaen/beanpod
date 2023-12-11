@@ -44,6 +44,7 @@ interface UserData {
   is_profile_contents: boolean //소개글등록 여부
   state: State //회원상태
   referrer_nick_name: string //추천인
+  is_special_member?: boolean // 우수회원 여부
   is_pause?: boolean //일시정지 여부
   is_suspended?: boolean //영구정지 여부
   suspension_reason?: string //정지 사유
@@ -85,6 +86,7 @@ export const data = {
   is_profile_contents: false,
   state: 'active',
   referrer_nick_name: '오박사',
+  is_special_member: false,
   is_pause: false,
   is_suspended: false,
   suspension_reason: '허위 프로필',
@@ -190,11 +192,10 @@ function UserView({}) {
                     onChange={value => alert(value.target.value)}
                   />
                 </TableData>
-
+                <TableHead>우수회원 여부</TableHead>
+                <TableData>{item.is_special_member ? 'Y' : 'N'}</TableData>
                 <TableHead>소개글 등록 여부</TableHead>
                 <TableData>{item.is_profile_contents ? 'Y' : 'N'}</TableData>
-                <TableHead>상태</TableHead>
-                <TableData>{renderState(item.state)}</TableData>
               </dl>
               <dl>
                 <TableHead>지인차단 여부</TableHead>
@@ -214,8 +215,8 @@ function UserView({}) {
                 <TableData>{item.warning_cnt}</TableData>
                 <TableHead>번호인증 여부</TableHead>
                 <TableData>{item.is_phone_verified ? 'Y' : 'N'}</TableData>
-                <TableData></TableData>
-                <TableData></TableData>
+                <TableHead>상태</TableHead>
+                <TableData>{renderState(item.state)}</TableData>
               </dl>
               <ButtonGroup align="center">
                 <Button
