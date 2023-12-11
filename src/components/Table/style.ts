@@ -20,6 +20,10 @@ export const TableWrapper = styled.div`
   td:last-of-type {
     border-right: none;
   }
+
+  a {
+    color: ${({ theme }) => theme.colors.point500};
+  }
 `
 
 export const TableHeadCell = styled.th`

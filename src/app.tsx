@@ -19,6 +19,7 @@ import UserView from '#pages/User/View'
 import Payment from '#pages/Payment'
 import Member from '#pages/Member'
 import Support from '#pages/Support'
+import Message from '#pages/Message'
 import Administrator from '#pages/Administrator'
 import Join from '#pages/Join'
 import Login from '#pages/Login'
@@ -73,6 +74,7 @@ ReactDOM.createRoot(rootNode).render(
             <Route path="/acount/list" component={Administrator} />
             <Route path="/support/list" component={Support} />
             <Route path="/member/list" component={Member} />
+            <Route path="/message/list" component={Message} />
             <Route path="/join" component={Join} />
             <Route path="/login" component={Login} />
             <Redirect from="*" to="/" />

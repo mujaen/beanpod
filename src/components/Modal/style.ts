@@ -50,6 +50,7 @@ export const Content = styled.div`
 
     color: ${({ theme }) => theme.colors.gray800};
     ${({ theme }) => theme.fonts.L100};
+    line-height: 1.2;
   }
 
   dt,
@@ -57,8 +58,7 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
 
-    height: 38px;
-    padding: 0 16px;
+    padding: 6px 16px;
     box-sizing: border-box;
     text-align: left;
   }
