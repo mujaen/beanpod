@@ -1,5 +1,6 @@
 {
   "packageManager": "yarn@4.0.1",
+  "homepage": "https://mujaen.github.io/beanpod",
   "scripts": {
     "dev": "NODE_ENV=development DIST_ENV=development PROTOCOL=https node server/index.js",
     "start": "NODE_ENV=development DIST_ENV=development PROTOCOL=https node server/index.js",
@@ -10,7 +11,8 @@
     "lint:eslint:quiet": "eslint --ext .ts,.tsx,.js,.jsx --no-error-on-unmatched-pattern --quiet",
     "lint:eslint:fix": "eslint --ext .ts,.tsx,.js,.jsx --no-error-on-unmatched-pattern --quiet --fix",
     "build": "NODE_ENV=production DIST_ENV=production webpack --config webpack/webpack.prod.config.js --progress",
-    "build:clean": "rimraf ./build"
+    "build:clean": "rimraf ./build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
@@ -43,6 +45,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^6.1.0",
     "html-webpack-plugin": "^5.5.3",
     "prettier": "^3.1.0",
     "raw-loader": "^4.0.2",
@@ -51,6 +54,7 @@
     "react-hook-form": "^7.48.2",
     "react-hot-loader": "^4.13.1",
     "react-router-dom": "5.3.0",
+    "rimraf": "^5.0.5",
     "terser-webpack-plugin": "^5.3.9",
     "typescript": "^5.2.2",
     "webpack": "^5.89.0",

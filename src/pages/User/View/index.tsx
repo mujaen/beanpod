@@ -157,7 +157,7 @@ function UserView({}) {
               <dl>
                 <TableHead>키</TableHead>
                 <TableData>{item.height}cm</TableData>
-                <TableHead>등록일</TableHead>
+                <TableHead>가입일</TableHead>
                 <TableData>{item.created_at}</TableData>
                 <TableHead>수정일</TableHead>
                 <TableData>{item.updated_at}</TableData>
@@ -284,8 +284,8 @@ function UserView({}) {
                 <TableData>E001, E018, E026</TableData>
                 <TableHead>이상형</TableHead>
                 <TableData>B001, B018, B026</TableData>
-                <TableData></TableData>
-                <TableData></TableData>
+                <TableHead>모의고사 응시 여부</TableHead>
+                <TableData>Y</TableData>
                 <TableData></TableData>
                 <TableData></TableData>
               </dl>

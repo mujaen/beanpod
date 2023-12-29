@@ -21,6 +21,7 @@ interface MessageData {
   refuse_cnt: number //거절당한 횟수
   message: string //메시지 내용
   created_at: string //수신일
+  updated_at: string //발신일
   reply?: boolean
 }
 
@@ -36,6 +37,7 @@ export const data = [
     message:
       '프로필을 보고 저와 결이 같다고 생각했어요 괜찮으시면 저랑 아이스티 한 잔 하면서 얘기나눠봐요',
     created_at: '2023/09/05',
+    updated_at: '',
   },
   {
     seq: 1,
@@ -48,6 +50,7 @@ export const data = [
     message:
       '프로필을 보고 저와 결이 같다고 생각했어요 괜찮으시면 저랑 아이스티 한 잔 하면서 얘기나눠봐요',
     created_at: '2023/09/05',
+    updated_at: '',
   },
   {
     seq: 1,
@@ -59,6 +62,7 @@ export const data = [
     refuse_cnt: 1,
     message: '',
     created_at: '2023/09/05',
+    updated_at: '2023/09/07',
   },
 ] as MessageData[]
 
@@ -95,6 +99,11 @@ function Message({}) {
     {
       accessor: 'created_at',
       value: '수신일',
+      width: 120,
+    },
+    {
+      accessor: 'updated_at',
+      value: '발신일',
       width: 120,
     },
     {
@@ -135,6 +144,7 @@ function Message({}) {
               <TableCell>{item.is_answer ? 'Y' : 'N'}</TableCell>
               <TableCell>{item.refuse_cnt}</TableCell>
               <TableCell>{item.created_at}</TableCell>
+              <TableCell>{item.updated_at}</TableCell>
               <TableCell>
                 <Button
                   onClick={() => {
