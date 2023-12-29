@@ -27,6 +27,9 @@ function Dashboard({}) {
               <Link to="/user/list">회원 목록 바로가기</Link>
             </li>
             <li>
+              <Link to="/history/list">하트 사용내역 바로가기</Link>
+            </li>
+            <li>
               <Link to="/login">로그인 바로가기</Link>
             </li>
             <li>

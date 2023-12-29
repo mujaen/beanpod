@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom/client'
 
 import axios from 'axios'
@@ -12,17 +12,19 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { CustomThemeProvider } from '#styles/themeProvider'
 
 import Frame from '#components/Layout/Frame'
+import Spinner from '#components/Spinner'
 
-import Dashboard from '#pages/Dashboard'
-import User from '#pages/User'
-import UserView from '#pages/User/View'
-import Payment from '#pages/Payment'
-import Member from '#pages/Member'
-import Support from '#pages/Support'
-import Message from '#pages/Message'
-import Administrator from '#pages/Administrator'
-import Join from '#pages/Join'
-import Login from '#pages/Login'
+const Dashboard = lazy(() => import('#pages/Dashboard'))
+const User = lazy(() => import('#pages/User'))
+const UserView = lazy(() => import('#pages/User/View'))
+const Payment = lazy(() => import('#pages/Payment'))
+const History = lazy(() => import('#pages/History'))
+const Member = lazy(() => import('#pages/Member'))
+const Support = lazy(() => import('#pages/Support'))
+const Message = lazy(() => import('#pages/Message'))
+const Administrator = lazy(() => import('#pages/Administrator'))
+const Join = lazy(() => import('#pages/Join'))
+const Login = lazy(() => import('#pages/Login'))
 
 export const defaultQueryFn = async ({ queryKey }: QueryFunctionContext) => {
   if (queryKey[1] && typeof queryKey[1] !== 'object') throw Error('query second key must be object')
@@ -66,19 +68,22 @@ ReactDOM.createRoot(rootNode).render(
     <CustomThemeProvider>
       <BrowserRouter>
         <Frame>
-          <Switch>
-            <Route path="/" exact component={Dashboard} />
-            <Route path="/user/list" component={User} />
-            <Route path="/user/:id" component={UserView} />
-            <Route path="/payment/list" component={Payment} />
-            <Route path="/acount/list" component={Administrator} />
-            <Route path="/support/list" component={Support} />
-            <Route path="/member/list" component={Member} />
-            <Route path="/message/list" component={Message} />
-            <Route path="/join" component={Join} />
-            <Route path="/login" component={Login} />
-            <Redirect from="*" to="/" />
-          </Switch>
+          <Suspense fallback={<Spinner />}>
+            <Switch>
+              <Route path="/" exact component={Dashboard} />
+              <Route path="/user/list" component={User} />
+              <Route path="/user/:id" component={UserView} />
+              <Route path="/payment/list" component={Payment} />
+              <Route path="/history/list" component={History} />
+              <Route path="/acount/list" component={Administrator} />
+              <Route path="/support/list" component={Support} />
+              <Route path="/member/list" component={Member} />
+              <Route path="/message/list" component={Message} />
+              <Route path="/join" component={Join} />
+              <Route path="/login" component={Login} />
+              <Redirect from="*" to="/" />
+            </Switch>
+          </Suspense>
         </Frame>
       </BrowserRouter>
     </CustomThemeProvider>

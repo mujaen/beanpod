@@ -29,12 +29,20 @@ function Nav() {
       renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="member" isSelected={isActived} />,
       path: '/user/list',
     },
+
     {
       title: '결제',
       renderIcon: ({ isActived }: IconProps) => (
         <StyledIcon icon="payment" isSelected={isActived} />
       ),
       path: '/payment/list',
+    },
+    {
+      title: '사용내역',
+      renderIcon: ({ isActived }: IconProps) => (
+        <StyledIcon icon="history" isSelected={isActived} />
+      ),
+      path: '/history/list',
     },
     {
       title: '문의',

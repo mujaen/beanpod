@@ -16,13 +16,9 @@ module.exports = options => ({
     alias: {
       '#assets': path.resolve(process.cwd(), 'src/assets'),
       '#components': path.resolve(process.cwd(), 'src/components'),
-      '#constants': path.resolve(process.cwd(), 'src/constants'),
-      '#graphql': path.resolve(process.cwd(), 'src/graphql'),
       '#hooks': path.resolve(process.cwd(), 'src/hooks'),
       '#pages': path.resolve(process.cwd(), 'src/pages'),
-      '#store': path.resolve(process.cwd(), 'src/store'),
       '#styles': path.resolve(process.cwd(), 'src/styles'),
-      '#test': path.resolve(process.cwd(), 'src/test'),
       '#utils': path.resolve(process.cwd(), 'src/utils'),
     },
   },

@@ -6,6 +6,7 @@ import Input from '#components/Input'
 import Select from '#components/Select'
 import SearchBar from '#components/SearchBar'
 import PaginationGroup from '#components/PaginationGroup'
+import Button from '#components/Button'
 
 import { Contents } from '#components/Layout/style'
 import { SearchWrapper, Wrapper } from '#components/SearchBar/style'
@@ -22,6 +23,7 @@ interface PaymentData {
   payment_price: string
   created_at: string
   cancellation_at: string
+  detail?: boolean
 }
 
 export const data = [
@@ -85,6 +87,10 @@ function Payment({}) {
     {
       accessor: 'cancellation_at',
       value: '취소날짜',
+    },
+    {
+      accessor: 'detail',
+      value: '상세보기',
     },
   ]
 
@@ -159,6 +165,9 @@ function Payment({}) {
               <TableCell>{item.payment_price}</TableCell>
               <TableCell>{item.created_at}</TableCell>
               <TableCell>{item.cancellation_at}</TableCell>
+              <TableCell>
+                <Button disabled>보기</Button>
+              </TableCell>
             </>
           )}
         />

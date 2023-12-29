@@ -11,8 +11,12 @@ interface RefuseModalProps extends ModalProps {
 function RefuseModal({ show, message, onClose }: RefuseModalProps) {
   const replyField = [
     { accessor: '', value: '무응답' },
-    { accessor: '1', value: '종교가 달라서' },
-    { accessor: '2', value: '거리때문에' },
+    { accessor: '1', value: '거리때문에' },
+    { accessor: '2', value: '가치관이 달라서' },
+    { accessor: '3', value: '인연이 아닌듯해서' },
+    { accessor: '4', value: '프로필 내용이 적어서' },
+    { accessor: '5', value: '종교가 달라서' },
+    { accessor: '6', value: '흡연때문에' },
   ]
 
   return (
