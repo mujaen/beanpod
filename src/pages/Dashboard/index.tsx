@@ -36,6 +36,9 @@ function Dashboard({}) {
               <Link to="/join">회원가입 바로가기</Link>
             </li>
             <li>
+              <Link to="/self/list">셀프소개 바로가기</Link>
+            </li>
+            <li>
               <Link to="/payment/list">결제현황 바로가기</Link>
             </li>
             <li>

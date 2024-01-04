@@ -190,10 +190,10 @@ function Join({}): JSX.Element {
       </Content>
       <ImageContent>
         <Icon icon="logo" width={200} height={200} />
-        <h1>Welcome to BxB</h1>
-        <p>가치관을 통한 만남을 할 수 있도록</p>
+        <h1>Welcome to Romang</h1>
+        <p>내면의 가치관과 취향을 알 수 있도록</p>
         <p>
-          <strong>정신적, 감성적 컨텐츠를 제공하는 데이팅앱</strong>
+          <strong>가치관 테스트 컨텐츠를 제공하는 소개팅 서비스</strong>
         </p>
       </ImageContent>
     </Container>

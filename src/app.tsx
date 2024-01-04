@@ -22,6 +22,7 @@ const History = lazy(() => import('#pages/History'))
 const Member = lazy(() => import('#pages/Member'))
 const Support = lazy(() => import('#pages/Support'))
 const Message = lazy(() => import('#pages/Message'))
+const Self = lazy(() => import('#pages/Self'))
 const Administrator = lazy(() => import('#pages/Administrator'))
 const Join = lazy(() => import('#pages/Join'))
 const Login = lazy(() => import('#pages/Login'))
@@ -74,6 +75,7 @@ ReactDOM.createRoot(rootNode).render(
               <Route path="/user/list" component={User} />
               <Route path="/user/:id" component={UserView} />
               <Route path="/payment/list" component={Payment} />
+              <Route path="/self/list" component={Self} />
               <Route path="/history/list" component={History} />
               <Route path="/acount/list" component={Administrator} />
               <Route path="/support/list" component={Support} />
