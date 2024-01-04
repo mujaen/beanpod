@@ -38,6 +38,11 @@ function Nav() {
       path: '/payment/list',
     },
     {
+      title: '셀프소개',
+      renderIcon: ({ isActived }: IconProps) => <StyledIcon icon="self" isSelected={isActived} />,
+      path: '/self/list',
+    },
+    {
       title: '사용내역',
       renderIcon: ({ isActived }: IconProps) => (
         <StyledIcon icon="history" isSelected={isActived} />
